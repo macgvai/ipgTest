@@ -7,13 +7,32 @@ Ext.define('ipgTest.view.main.MainController', {
 
     alias: 'controller.main',
 
-    // onItemSelected: function (sender, record) {
-    //     Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
-    // },
+    onAddClick: function () {
+        var view = this.getView(),
+            store = view.getStore(),
+            Model = store.getModel(),
+            rec = new Model();
+        view.store.insert(0, rec);
+    },
 
-    // onConfirm: function (choice) {
-    //     if (choice === 'yes') {
-    //         //
-    //     }
-    // }
+    onCopyClick: function () {
+        if (!this.getView().getSelection().length) {
+            return false;
+        }
+        var view = this.getView(),
+            store = view.getStore(),
+            selRow = view.getSelection()[0],
+            idx = store.indexOf(selRow),
+            data = selRow && selRow.getData(),
+            Model = store.getModel();
+            rec = new Model();
+
+        delete data.id
+        rec.set(data)
+        view.store.insert(idx + 1, rec);
+    },
+
+    onRemoveClick: function (view, recIndex, cellIndex, item, e, record) {
+        record.drop();
+    }
 });

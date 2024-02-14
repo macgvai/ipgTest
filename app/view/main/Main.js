@@ -10,12 +10,10 @@ Ext.define('ipgTest.view.main.Main', {
     xtype: 'app-main',
 
     requires: [
-        'Ext.plugin.Viewport',
-        'Ext.window.MessageBox',
-
         'ipgTest.view.main.MainController',
         'ipgTest.view.main.MainModel',
-        'ipgTest.view.main.List'
+        'ipgTest.view.main.List',
+        'CellEditingPluginOverride'
     ],
 
     controller: 'main',
