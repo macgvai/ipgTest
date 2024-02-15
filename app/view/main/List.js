@@ -6,7 +6,6 @@ Ext.define('ipgTest.view.main.List', {
     xtype: 'mainlist',
 
     requires: [
-        'ipgTest.store.Personnel',
         'Ext.selection.CellModel',
         'ipgTest.view.main.MainController'
     ],
@@ -15,8 +14,8 @@ Ext.define('ipgTest.view.main.List', {
 
     title: 'ipgTest',
 
-    store: {
-        type: 'personnel'
+    bind: {
+        store: '{users}'
     },
     
     plugins: {
@@ -43,7 +42,7 @@ Ext.define('ipgTest.view.main.List', {
                 displayField: 'name',
                 store: {
                     type: 'personnel'
-                },
+                }
             }
         }, {
             xtype: 'datecolumn',
