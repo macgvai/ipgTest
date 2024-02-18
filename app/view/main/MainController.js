@@ -15,15 +15,12 @@ Ext.define('ipgTest.view.main.MainController', {
         view.store.insert(0, rec);
     },
 
-    onCopyClick: function () {
+    onCopyClick: function (view, idx, cellIndex, item, e, record) {
         if (!this.getView().getSelection().length) {
             return false;
         }
-        var view = this.getView(),
-            store = view.getStore(),
-            selRow = view.getSelection()[0],
-            idx = store.indexOf(selRow),
-            data = selRow && selRow.getData(),
+        var store = view.getStore(),
+            data = record.getData(),
             Model = store.getModel();
             rec = new Model();
 
