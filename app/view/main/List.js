@@ -77,7 +77,7 @@ Ext.define('ipgTest.view.main.List', {
             width: 70,
             items: [{
                 iconCls: 'x-fa fa-check green icon-margin',
-                handler: 'onCopyClick',
+                handler: 'onCopyClickActionColumn',
                 tooltip: 'копировать',
 
             }, {

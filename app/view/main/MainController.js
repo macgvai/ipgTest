@@ -31,6 +31,17 @@ Ext.define('ipgTest.view.main.MainController', {
         rec.set(data)
         view.store.insert(idx + 1, rec);
     },
+    onCopyClickActionColumn: function (view, idx, cellIndex, item, e, record) {
+        var view = this.getView(),
+            store = view.getStore(),
+            data = record.getData(),
+            Model = store.getModel();
+            rec = new Model();
+
+        delete data.id
+        rec.set(data)
+        view.store.insert(idx + 1, rec);
+    },
 
     onRemoveClick: function (view, recIndex, cellIndex, item, e, record) {
         record.drop();
