@@ -1,7 +1,7 @@
 Ext.define('ipgTest.view.main.List', {
     extend: 'Ext.grid.Panel',
     xtype: 'mainlist',
-    alias: 'viewmodel.main-list-grid',
+    alias: 'main-list-grid',
 
     controller: 'main',
     viewModel: 'main',
