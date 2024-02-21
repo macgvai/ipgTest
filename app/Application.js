@@ -6,6 +6,11 @@
 Ext.define('ipgTest.Application', {
     extend: 'Ext.app.Application',
 
+    requires: [
+        // исправляет некорректное поведение combobox
+        'CellEditingPluginOverride'
+    ],
+
     name: 'ipgTest',
 
     quickTips: false,
