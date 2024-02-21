@@ -61,7 +61,7 @@ Ext.define('ipgTest.view.main.List', {
 
     columns: [
         {
-            header: 'Name',
+            header: 'Имя',
             dataIndex: 'name',
             flex: 1,
             editor: {
@@ -77,8 +77,8 @@ Ext.define('ipgTest.view.main.List', {
             }
         }, 
         {
+            header: 'Дата рождения',
             xtype: 'datecolumn',
-            header: 'dateOfBirth',
             flex: 1,
             dataIndex: 'dateOfBirth',
             format: 'M d, Y',
@@ -91,7 +91,7 @@ Ext.define('ipgTest.view.main.List', {
             }
         }, 
         {
-            header: 'description',
+            header: 'Примечания',
             dataIndex: 'description',
             flex: 1,
             editor: {
@@ -102,7 +102,7 @@ Ext.define('ipgTest.view.main.List', {
             }
         }, 
         {
-            header: 'quantity',
+            header: 'Количество',
             dataIndex: 'quantity',
             flex: 1,
             editor: {
