@@ -1,34 +1,63 @@
-/**
- * This view is an example list of people.
- */
 Ext.define('ipgTest.view.main.List', {
     extend: 'Ext.grid.Panel',
     xtype: 'mainlist',
-
-    requires: [
-        'Ext.selection.CellModel',
-        'ipgTest.view.main.MainController'
-    ],
+    alias: 'viewmodel.main-list-grid',
 
     controller: 'main',
+    viewModel: 'main',
+
+    // Навигация по ячейкам
+    selModel: 'cellmodel',
+    
+    // Редактирование ячеек по двойному клику
+    plugins: {
+        ptype: 'cellediting',
+        clicksToEdit: 2
+    },
 
     title: 'ipgTest',
 
-    bind: {
-        store: '{users}'
-    },
-    
-    plugins: {
-        cellediting: true
+    listeners: {
+        // Обработчик события «изменение выбора в гриде»
+        selectionchange: function () {
+            const vm = this.getViewModel()
+            const selectionRows = this.getSelection();
+
+            // Сетим во вьюмодель признак блокировки кнопок
+            selectionRows.length ? vm.set('buttonDisable', false) : vm.set('buttonDisable', true)
+        },
     },
 
-    tbar: [{
-        text: 'Добавить',
-        handler: 'onAddClick'
-    }, {
-        text: 'Копировать',
-        handler: 'onCopyClick'
-    }],
+    // Биндим стор
+    bind: {
+        store: '{users}',
+    },
+    
+    // Тулбар
+    tbar: [
+        {
+            text: 'Добавить',
+            tooltip: 'Добавить',
+            handler: 'onAddClick',
+
+        }, 
+        {
+            text: 'Копировать',
+            tooltip: 'Копировать',
+            bind: {
+                disabled: '{buttonDisable}',
+            },
+            handler: 'onCopyClick'
+        }, 
+        {
+            text: 'Удалить',
+            tooltip: 'Удалить',
+            bind: {
+                disabled: '{buttonDisable}',
+            },
+            handler: 'onRemoveClick'
+        }
+    ],
 
     columns: [
         {
@@ -37,14 +66,17 @@ Ext.define('ipgTest.view.main.List', {
             flex: 1,
             editor: {
                 xtype: 'combo',
-                queryMode: 'remote',
                 valueField: 'name',
                 displayField: 'name',
                 store: {
                     type: 'personnel'
+                },
+                listeners: {
+                    specialkey: 'sendToLocalStorage'
                 }
             }
-        }, {
+        }, 
+        {
             xtype: 'datecolumn',
             header: 'dateOfBirth',
             flex: 1,
@@ -53,15 +85,23 @@ Ext.define('ipgTest.view.main.List', {
             editor: {
                 xtype: 'datefield',
                 format: 'm/d/y',
+                listeners: {
+                    specialkey: 'sendToLocalStorage'
+                }
             }
-        }, {
+        }, 
+        {
             header: 'description',
             dataIndex: 'description',
             flex: 1,
             editor: {
                 xtype: 'textfield',
+                listeners: {
+                    specialkey: 'sendToLocalStorage'
+                }
             }
-        }, {
+        }, 
+        {
             header: 'quantity',
             dataIndex: 'quantity',
             flex: 1,
@@ -69,23 +109,11 @@ Ext.define('ipgTest.view.main.List', {
                 xtype: 'numberfield',
                 validator: function (value) {
                     return Number.isInteger(+value) && value > 0 ? true : 'только целые положительные числа'
+                },
+                listeners: {
+                    specialkey: 'sendToLocalStorage'
                 }
             }
-        }, {
-            header: 'ActionColumn',
-            xtype: 'actioncolumn',
-            width: 70,
-            items: [{
-                iconCls: 'x-fa fa-check green icon-margin',
-                handler: 'onCopyClickActionColumn',
-                tooltip: 'копировать',
-
-            }, {
-                iconCls: 'x-fa fa-ban red',
-                handler: 'onRemoveClick',
-                tooltip: 'удалить',
-            }]
-        }, 
-    ],
-
+        }
+    ]
 });

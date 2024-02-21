@@ -1,6 +1,3 @@
-/**
- * This class is the view model for the Main view of the application.
- */
 Ext.define('ipgTest.view.main.MainModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.main',
@@ -13,6 +10,10 @@ Ext.define('ipgTest.view.main.MainModel', {
         users: {
             type: 'personnel',
         }
-    }
+    },
 
+     data: {
+        // Признак блокировки кнопок 
+        buttonDisable: true
+    }
 });
