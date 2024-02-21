@@ -10,9 +10,7 @@ Ext.define('ipgTest.view.main.Main', {
     xtype: 'app-main',
 
     requires: [
-        'ipgTest.view.main.MainController',
-        'ipgTest.view.main.MainModel',
-        'ipgTest.view.main.List',
+        // исправляет некорректное поведение combobox
         'CellEditingPluginOverride'
     ],
 
