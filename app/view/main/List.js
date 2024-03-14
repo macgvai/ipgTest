@@ -20,12 +20,12 @@ Ext.define('ipgTest.view.main.List', {
     listeners: {
         // Обработчик события «изменение выбора в гриде»
         selectionchange: function () {
-            const vm = this.getViewModel()
+            const vm = this.getViewModel();
             const selectionRows = this.getSelection();
 
             // Сетим во вьюмодель признак блокировки кнопок
             selectionRows.length ? vm.set('buttonDisable', false) : vm.set('buttonDisable', true)
-        },
+        }
     },
 
     // Биндим стор
@@ -108,7 +108,7 @@ Ext.define('ipgTest.view.main.List', {
             editor: {
                 xtype: 'numberfield',
                 validator: function (value) {
-                    return Number.isInteger(+value) && value > 0 ? true : 'только целые положительные числа'
+                    return Number.isInteger(+value) && value > 0 ? true : 'только целые положительные числа';
                 },
                 listeners: {
                     specialkey: 'sendToLocalStorage'

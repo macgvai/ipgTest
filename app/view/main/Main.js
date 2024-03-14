@@ -16,3 +16,6 @@ Ext.define('ipgTest.view.main.Main', {
             xtype: 'mainlist'
         }]
     });
+
+
+
