@@ -3,12 +3,12 @@ Ext.define('ipgTest.view.main.MainModel', {
     alias: 'viewmodel.main',
 
     requires: [
-        'ipgTest.store.Personnel',
+        'ipgTest.store.Personnel'
     ],
 
     stores: {
         users: {
-            type: 'personnel',
+            type: 'personnel'
         }
     },
 
