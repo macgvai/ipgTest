@@ -1,7 +1,6 @@
 Ext.define('ipgTest.model.Personnel', {
     extend: 'Ext.data.Model',
 
-
     fields: [
         {
             name: 'name',

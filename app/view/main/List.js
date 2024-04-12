@@ -30,7 +30,7 @@ Ext.define('ipgTest.view.main.List', {
 
     // Биндим стор
     bind: {
-        store: '{users}',
+        store: '{users}'
     },
     
     // Тулбар
@@ -38,14 +38,13 @@ Ext.define('ipgTest.view.main.List', {
         {
             text: 'Добавить',
             tooltip: 'Добавить',
-            handler: 'onAddClick',
-
+            handler: 'onAddClick'
         }, 
         {
             text: 'Копировать',
             tooltip: 'Копировать',
             bind: {
-                disabled: '{buttonDisable}',
+                disabled: '{buttonDisable}'
             },
             handler: 'onCopyClick'
         }, 
@@ -53,7 +52,7 @@ Ext.define('ipgTest.view.main.List', {
             text: 'Удалить',
             tooltip: 'Удалить',
             bind: {
-                disabled: '{buttonDisable}',
+                disabled: '{buttonDisable}'
             },
             handler: 'onRemoveClick'
         }
