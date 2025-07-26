@@ -1,6 +1,6 @@
 Ext.define('ipgTest.view.main.MainController', {
-    extend: 'Ext.app.ViewController',
     alias: 'controller.main',
+    extend: 'Ext.app.ViewController',
 
     // Добавляем новую строку
     onAddClick: function () {
@@ -14,7 +14,7 @@ Ext.define('ipgTest.view.main.MainController', {
         view.store.insert(idx, rec);
     },
 
-    // Копируем выделенную строку 
+    // Копируем выделенную строку
     onCopyClick: function () {
         const view = this.getView();
         const store = view.getStore();
@@ -28,7 +28,7 @@ Ext.define('ipgTest.view.main.MainController', {
         rec.set(data)
         view.store.insert(idx + 1, rec);
     },
-    
+
     // Удаляем выделенную строку 
     onRemoveClick: function () {
         const view = this.getView();

@@ -328,6 +328,7 @@ Ext.define('Ext.data.Store', {
                 }
                 //</debug>
 
+
                 // Hide this from Cmd
                 /* eslint-disable-next-line dot-notation */
                 return new Ext.data['BufferedStore'](config);

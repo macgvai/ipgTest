@@ -18,6 +18,10 @@ Ext.define('ipgTest.model.Personnel', {
             name: 'quantity',
             type: 'number',
             defaultValue: '15'
+        }, {
+            name: 'group',
+            type: 'int'
         }
     ]
+
 });

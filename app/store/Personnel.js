@@ -1,5 +1,6 @@
 Ext.define('ipgTest.store.Personnel', {
     extend: 'Ext.data.Store',
+    storeId: 'personnel',
 
     alias: 'store.personnel',
 
@@ -13,5 +14,6 @@ Ext.define('ipgTest.store.Personnel', {
             rootProperty: 'users'
         }
     },
-    autoLoad: true
+    autoLoad: true,
+    groupField: 'group'
 });

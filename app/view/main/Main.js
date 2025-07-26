@@ -12,12 +12,9 @@ Ext.define('ipgTest.view.main.Main', {
     controller: 'main',
     viewModel: 'main',
 
-    items: [{
-            xtype: 'mainlist'
-        }]
-    });
-
-
-
-
-
+    items: [
+        {
+            xtype: 'mainlist',
+        },
+    ],
+});
